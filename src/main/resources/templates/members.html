@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Members</title>
+</head>
+<body>
+<form method="get">
+    <a href="/members"
+       th:each="member, status : ${members}">
+    </a>
+    <div th:text="${member.firstName}"></div>
+</form>
+</body>
+</html>
