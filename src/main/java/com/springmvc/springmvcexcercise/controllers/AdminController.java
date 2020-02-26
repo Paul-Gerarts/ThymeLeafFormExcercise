@@ -1,7 +1,7 @@
 package com.springmvc.springmvcexcercise.controllers;
 
+import com.springmvc.springmvcexcercise.impl.MemberServiceImpl;
 import com.springmvc.springmvcexcercise.services.MemberList;
-import com.springmvc.springmvcexcercise.services.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/homepage")
 public class AdminController {
 
-    private MemberService memberService;
+    private MemberServiceImpl memberService;
 
     @Autowired
-    public AdminController(MemberService memberService){
+    public AdminController(MemberServiceImpl memberService) {
         this.memberService = memberService;
     }
 

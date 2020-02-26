@@ -12,16 +12,16 @@ import java.util.List;
 @Builder
 public class Member {
 
-    private String userName;
-    private String password;
-    private SecurityRole securityRole;
+    private final String userName;
+    private final String password;
+    private final SecurityRole securityRole;
 
-    private String firstName;
-    private String lastName;
-    private String email;
-    private Address address;
-    private String phoneNumber;
-    private LocalDate birthday;
-    private MemberShipRole role;
-    private List<KnittingStich> knittingStiches;
+    private final String firstName;
+    private final String lastName;
+    private final String email;
+    private final Address address;
+    private final String phoneNumber;
+    private final LocalDate birthday;
+    private final MemberShipRole role;
+    private final List<KnittingStich> knittingStiches;
 }

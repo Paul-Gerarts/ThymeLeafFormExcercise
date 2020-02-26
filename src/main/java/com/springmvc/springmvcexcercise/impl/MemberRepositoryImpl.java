@@ -5,9 +5,10 @@ import com.springmvc.springmvcexcercise.entities.Member;
 import com.springmvc.springmvcexcercise.entities.MemberShipRole;
 import com.springmvc.springmvcexcercise.entities.SecurityRole;
 import com.springmvc.springmvcexcercise.repositories.MemberRepository;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.PostConstruct;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -18,12 +19,13 @@ import java.util.stream.Collectors;
 import static com.springmvc.springmvcexcercise.entities.KnittingStich.*;
 
 @Service
+@AllArgsConstructor
+@Data
 public class MemberRepositoryImpl implements MemberRepository {
 
     private Map<Integer, Member> members;
 
-    @PostConstruct
-    private void init() {
+    public MemberRepositoryImpl() {
         members = new HashMap<>();
 
         members.put(1,

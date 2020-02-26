@@ -1,3 +1,4 @@
+/*
 package com.springmvc.springmvcexcercise.services;
 
 import com.springmvc.springmvcexcercise.entities.Member;
@@ -12,3 +13,4 @@ public interface MemberService {
 
     Member getMember(String lastName);
 }
+*/

@@ -7,9 +7,24 @@
 <body>
 <form method="get">
     <a href="/members"
-       th:each="member, status : ${members}">
+       th:each="member, status : ${members}"
+    >
     </a>
-    <div th:text="${member.firstName}"></div>
+    <!-- <thead>
+     <tr>
+         <th class="mdl-data-table__cell&#45;&#45;non-numeric">Name</th>
+         <th class="mdl-data-table__cell&#45;&#45;non-numeric">E-mail</th>
+         <th class="mdl-data-table__cell&#45;&#45;non-numeric">Role</th>
+         <th class="mdl-data-table__cell&#45;&#45;non-numeric">Number of known stitches</th>
+         <th class="mdl-data-table__cell&#45;&#45;non-numeric">Details</th>
+     </tr>
+     </thead>
+     <tr >-->
+    <!--<td th:text="${member.firstName} + ' ' + ${member.lastName}" class="mdl-data-table__cell&#45;&#45;non-numeric">Name FamilyName</td>
+    <td th:text="${member.email}" class="mdl-data-table__cell&#45;&#45;non-numeric">Email</td>
+    <td th:text="${member.knittingStitches}" class="mdl-data-table__cell&#45;&#45;non-numeric">Role</td>
+    <td th:text="${member.address}" class="mdl-data-table__cell&#45;&#45;non-numeric">Stitches</td>-->
+    <!--    </tr>-->
 </form>
 </body>
 </html>
