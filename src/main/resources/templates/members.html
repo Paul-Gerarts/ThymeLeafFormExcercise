@@ -5,26 +5,12 @@
     <title>Members</title>
 </head>
 <body>
-<form method="get">
-    <a href="/members"
-       th:each="member, status : ${members}"
-    >
-    </a>
-    <!-- <thead>
-     <tr>
-         <th class="mdl-data-table__cell&#45;&#45;non-numeric">Name</th>
-         <th class="mdl-data-table__cell&#45;&#45;non-numeric">E-mail</th>
-         <th class="mdl-data-table__cell&#45;&#45;non-numeric">Role</th>
-         <th class="mdl-data-table__cell&#45;&#45;non-numeric">Number of known stitches</th>
-         <th class="mdl-data-table__cell&#45;&#45;non-numeric">Details</th>
-     </tr>
-     </thead>
-     <tr >-->
-    <!--<td th:text="${member.firstName} + ' ' + ${member.lastName}" class="mdl-data-table__cell&#45;&#45;non-numeric">Name FamilyName</td>
-    <td th:text="${member.email}" class="mdl-data-table__cell&#45;&#45;non-numeric">Email</td>
-    <td th:text="${member.knittingStitches}" class="mdl-data-table__cell&#45;&#45;non-numeric">Role</td>
-    <td th:text="${member.address}" class="mdl-data-table__cell&#45;&#45;non-numeric">Stitches</td>-->
-    <!--    </tr>-->
-</form>
+<h1>Ledenlijst</h1>
+<ul>
+    <li th:each="member : ${members}">
+        <a th:href="@{/members/detail(lastName=${member.lastName})}"
+           th:text="${member.getFirstName()} + ' ' + ${member.getLastName()}">Member firstName</a>
+    </li>
+</ul>
 </body>
 </html>

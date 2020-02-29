@@ -2,10 +2,8 @@ package com.springmvc.springmvcexcercise.entities;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.ToString;
 
 @Data
-@ToString
 @Builder
 public class Address {
 
@@ -15,4 +13,12 @@ public class Address {
     private Integer postalCode;
     private String city;
 
+    @Override
+    public String toString() {
+        return "straat: " + street +
+                ", nummer: " + number +
+                ", postbus: " + postBox +
+                ", postcode: " + postalCode +
+                ", stad: " + city;
+    }
 }

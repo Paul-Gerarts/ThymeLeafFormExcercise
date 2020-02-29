@@ -7,20 +7,17 @@ import com.springmvc.springmvcexcercise.entities.SecurityRole;
 import com.springmvc.springmvcexcercise.repositories.MemberRepository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
-import static com.springmvc.springmvcexcercise.entities.KnittingStich.*;
+import static com.springmvc.springmvcexcercise.entities.KnittingStiches.*;
 
-@Service
-@AllArgsConstructor
 @Data
+@AllArgsConstructor
 public class MemberRepositoryImpl implements MemberRepository {
 
     private Map<Integer, Member> members;
@@ -44,10 +41,10 @@ public class MemberRepositoryImpl implements MemberRepository {
                                 .build())
                         .birthday(LocalDate.of(1987, 6, 24))
                         .knittingStiches(List.of(
-                                CABLE,
-                                STOCKINETTE
+                                CABLE.getName(),
+                                STOCKINETTE.getName()
                         ))
-                        .role(MemberShipRole.PRESIDENT)
+                        .role(MemberShipRole.PRESIDENT.getName())
                         .phoneNumber("089/86.18.71")
                         .email("Jef.Swennen@gmail.com")
                         .build());
@@ -68,12 +65,12 @@ public class MemberRepositoryImpl implements MemberRepository {
                                 .build())
                         .birthday(LocalDate.of(1983, 9, 15))
                         .knittingStiches(List.of(
-                                RIB,
-                                SEED,
-                                BEGINNER_LACE,
-                                GARTER
+                                RIB.getName(),
+                                SEED.getName(),
+                                BEGINNER_LACE.getName(),
+                                GARTER.getName()
                         ))
-                        .role(MemberShipRole.VICE_PRESIDENT)
+                        .role(MemberShipRole.VICE_PRESIDENT.getName())
                         .phoneNumber("0494/23.20.53")
                         .email("Marleen_Stefens@telenet.be")
                         .build());
@@ -86,12 +83,9 @@ public class MemberRepositoryImpl implements MemberRepository {
 
     @Override
     public Member getMember(String lastName) {
-        List<Member> matches = members.values().stream()
-                .map(Member::getLastName)
-                .filter(name -> name.equals(lastName))
-                .distinct()
-                .map(this::getMember)
-                .collect(Collectors.toUnmodifiableList());
-        return matches.isEmpty() ? null : matches.get(0);
+        return members.values().stream()
+                .filter(member -> lastName.equals(member.getLastName()))
+                .findFirst()
+                .orElse(null);
     }
 }

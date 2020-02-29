@@ -22,6 +22,6 @@ public class Member {
     private final Address address;
     private final String phoneNumber;
     private final LocalDate birthday;
-    private final MemberShipRole role;
-    private final List<KnittingStich> knittingStiches;
+    private final String role;
+    private final List<String> knittingStiches;
 }

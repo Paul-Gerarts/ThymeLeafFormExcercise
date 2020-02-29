@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/homepage")
 public class AdminController {
 
-    private MemberServiceImpl memberService;
+    private MemberServiceImpl memberRepository;
 
     @Autowired
-    public AdminController(MemberServiceImpl memberService) {
-        this.memberService = memberService;
+    public AdminController(MemberServiceImpl memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     @GetMapping
     public MemberList getMembers(){
-        return new MemberList(memberService.getAllMembers());
+        return new MemberList(memberRepository.getAllMembers());
     }
 }

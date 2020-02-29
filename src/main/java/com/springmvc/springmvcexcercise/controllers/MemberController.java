@@ -1,35 +1,36 @@
 package com.springmvc.springmvcexcercise.controllers;
 
 import com.springmvc.springmvcexcercise.entities.Member;
-import com.springmvc.springmvcexcercise.impl.MemberRepositoryImpl;
+import com.springmvc.springmvcexcercise.impl.MemberServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 @RequestMapping("/members")
 public class MemberController {
 
-    @Autowired
-    private MemberRepositoryImpl memberService;
+    public static final String MEMBERS = "members";
+    private MemberServiceImpl memberRepository;
 
     @Autowired
-    public MemberController(MemberRepositoryImpl memberService) {
-        this.memberService = memberService;
+    public MemberController(MemberServiceImpl memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
     @GetMapping
-    public ResponseEntity<List<Member>> getMembers() {
-        return ResponseEntity.ok(memberService.getAllMembers());
+    public ModelAndView handleGet() {
+        return new ModelAndView(MEMBERS, MEMBERS, memberRepository.getAllMembers());
     }
 
-    @GetMapping("{lastName}")
-    public Member getMember(@PathVariable("lastName") String lastName) {
-        return memberService.getMember(lastName);
+    @GetMapping("/detail")
+    public ModelAndView handleGet(@RequestParam("lastName") String lastName) {
+        Member member = memberRepository.getMember(lastName);
+        return null != member
+                ? new ModelAndView("membersDetail", "member", member)
+                : new ModelAndView(MEMBERS);
     }
 }

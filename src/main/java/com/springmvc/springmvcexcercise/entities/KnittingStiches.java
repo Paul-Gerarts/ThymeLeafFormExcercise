@@ -5,14 +5,16 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public enum MemberShipRole {
+public enum KnittingStiches {
 
-    PRESIDENT("President"),
-    VICE_PRESIDENT("Vice president"),
-    SECRETARY("secretary"),
-    TREASURER("treasurer"),
-    MEMBER("member");
+    GARTER("Garter"),
+    STOCKINETTE("Stockinette"),
+    RIB("Rib"),
+    SEED("Seed"),
+    BEGINNER_LACE("Beginner lace"),
+    CABLE("cable");
 
     private final String name;
 
 }
+

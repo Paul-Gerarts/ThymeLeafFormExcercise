@@ -15,7 +15,6 @@ import java.util.List;
 @Data
 public class MemberServiceImpl implements MemberRepository {
 
-    @Autowired
     private MemberRepositoryImpl memberRepository;
 
     @Autowired
