@@ -2,15 +2,23 @@ package com.springmvc.springmvcexcercise.entities;
 
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.lang.NonNull;
+
+import javax.validation.constraints.NotBlank;
 
 @Data
 @Builder
 public class Address {
 
+    @NotBlank
     private String street;
-    private Integer number;
-    private Integer postBox;
-    private Integer postalCode;
+    @NotBlank
+    private String number;
+    @NonNull
+    private String postBox;
+    @NotBlank
+    private String postalCode;
+    @NotBlank
     private String city;
 
     @Override

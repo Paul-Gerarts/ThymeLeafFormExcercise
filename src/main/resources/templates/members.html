@@ -1,16 +1,40 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml" lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
     <meta charset="UTF-8">
     <title>Members</title>
 </head>
-<body>
+<table id="login">
+    <thead>
+    <tr>
+        <td>
+            <a href="/login">LOGIN</a>
+        </td>
+    </tr>
+    </thead>
+</table>
 <h1>Ledenlijst</h1>
-<ul>
-    <li th:each="member : ${members}">
-        <a th:href="@{/members/detail(lastName=${member.lastName})}"
-           th:text="${member.getFirstName()} + ' ' + ${member.getLastName()}">Member firstName</a>
-    </li>
-</ul>
-</body>
+<table id="tabelView">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Number of known stitches</th>
+        <th>Details</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="member : ${members}">
+        <td th:text="${member.getFirstName()} + ' ' + ${member.getLastName()}"></td>
+        <td th:text="${member.getEmail()}"></td>
+        <td th:text="${member.getRole()}"></td>
+        <td th:text="${member.getKnittingStiches().size()}"></td>
+        <td><a th:href="@{/members/detail(lastName=${member.lastName})}">Details</a></td>
+    </tr>
+    </tbody>
+</table>
+<br/>
+<div sec:authorize="hasRole('ROLE_ADMIN')"></div>
 </html>

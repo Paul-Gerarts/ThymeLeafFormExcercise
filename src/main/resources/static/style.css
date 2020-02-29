@@ -1,0 +1,38 @@
+#tabelView {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#tabelView td, #tabelView th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#tabelView tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#tabelView tr:hover {
+    background-color: #ddd;
+}
+
+#tabelView th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}
+
+#login {
+    color: white;
+    position: absolute;
+    right: 20px;
+    border: 1px solid #ddd;
+    background-color: #4CAF50;
+}
+
+.boldLetter {
+    font-weight: bold;
+}
