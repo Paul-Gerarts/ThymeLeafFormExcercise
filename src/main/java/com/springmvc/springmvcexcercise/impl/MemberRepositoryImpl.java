@@ -5,6 +5,7 @@ import com.springmvc.springmvcexcercise.entities.Member;
 import com.springmvc.springmvcexcercise.entities.MemberShipRole;
 import com.springmvc.springmvcexcercise.entities.SecurityRole;
 import com.springmvc.springmvcexcercise.repositories.MemberRepository;
+import com.springmvc.springmvcexcercise.services.Validation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -21,6 +22,7 @@ import static com.springmvc.springmvcexcercise.entities.KnittingStiches.*;
 public class MemberRepositoryImpl implements MemberRepository {
 
     private Map<Integer, Member> members;
+    private Validation validate = new Validation();
 
     public MemberRepositoryImpl() {
         members = new HashMap<>();
@@ -45,8 +47,8 @@ public class MemberRepositoryImpl implements MemberRepository {
                                 STOCKINETTE.getName()
                         ))
                         .role(MemberShipRole.PRESIDENT.getName())
-                        .phoneNumber("089/86.18.71")
-                        .email("Jef.Swennen@gmail.com")
+                        .phoneNumber(validate.validatePhoneNumber("089/86.18.70"))
+                        .email(validate.validateEmail("Jef.email@gmail.com"))
                         .build());
 
         members.put(2,
@@ -71,8 +73,8 @@ public class MemberRepositoryImpl implements MemberRepository {
                                 GARTER.getName()
                         ))
                         .role(MemberShipRole.VICE_PRESIDENT.getName())
-                        .phoneNumber("0494/23.20.53")
-                        .email("Marleen_Stefens@telenet.be")
+                        .phoneNumber(validate.validatePhoneNumber("0494/23.20.55"))
+                        .email(validate.validateEmail("Marleen_email@telenet.be"))
                         .build());
     }
 
