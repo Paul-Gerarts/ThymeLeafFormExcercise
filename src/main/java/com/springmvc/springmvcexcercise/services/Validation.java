@@ -1,10 +1,13 @@
 package com.springmvc.springmvcexcercise.services;
 
+import com.springmvc.springmvcexcercise.entities.SecurityRole;
 import com.springmvc.springmvcexcercise.exceptions.ValidationException;
+import org.springframework.stereotype.Component;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@Component
 public class Validation {
 
     public String validatePhoneNumber(String phoneNumber) {
@@ -29,6 +32,16 @@ public class Validation {
             return correctedEmail;
         } else {
             throw new ValidationException("You've entered an incorrect emailaddress");
+        }
+    }
+
+    public SecurityRole getRoleByName(String roleName) {
+        switch (roleName) {
+            case "admin":
+                return SecurityRole.ADMIN;
+            default:
+            case "user":
+                return SecurityRole.USER;
         }
     }
 }

@@ -36,9 +36,9 @@ public class AuthSuccessHandler implements AuthenticationSuccessHandler {
         Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
         for (GrantedAuthority grantedAuthority : authorities) {
             if (grantedAuthority.getAuthority().equals("ROLE_ADMIN")) {
-                return "/members";
+                return "/admin";
             } else if (grantedAuthority.getAuthority().equals("ROLE_USER")) {
-                return "/homepage";
+                return "/members";
             } else {
                 throw new CustomException(HttpStatus.valueOf(401), " unknown user role ", "Please contact your admin");
             }

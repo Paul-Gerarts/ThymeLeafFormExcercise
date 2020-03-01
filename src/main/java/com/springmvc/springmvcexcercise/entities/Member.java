@@ -2,6 +2,7 @@ package com.springmvc.springmvcexcercise.entities;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import lombok.ToString;
 import org.springframework.lang.NonNull;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @Data
 @ToString
 @Builder
+@RequiredArgsConstructor
 public class Member {
 
     @NotBlank

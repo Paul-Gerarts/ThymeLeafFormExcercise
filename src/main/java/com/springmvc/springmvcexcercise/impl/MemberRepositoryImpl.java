@@ -21,6 +21,7 @@ import static com.springmvc.springmvcexcercise.entities.KnittingStiches.*;
 @AllArgsConstructor
 public class MemberRepositoryImpl implements MemberRepository {
 
+    private int index = 3;
     private Map<Integer, Member> members;
     private Validation validate = new Validation();
 
@@ -89,5 +90,9 @@ public class MemberRepositoryImpl implements MemberRepository {
                 .filter(member -> lastName.equals(member.getLastName()))
                 .findFirst()
                 .orElse(null);
+    }
+
+    public void addMember(Member newMember) {
+        members.put(index++, newMember);
     }
 }

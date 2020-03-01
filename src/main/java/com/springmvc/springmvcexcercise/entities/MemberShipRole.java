@@ -9,9 +9,9 @@ public enum MemberShipRole {
 
     PRESIDENT("President"),
     VICE_PRESIDENT("Vice president"),
-    SECRETARY("secretary"),
-    TREASURER("treasurer"),
-    MEMBER("member");
+    SECRETARY("Secretary"),
+    TREASURER("Treasurer"),
+    MEMBER("Member");
 
     private final String name;
 
