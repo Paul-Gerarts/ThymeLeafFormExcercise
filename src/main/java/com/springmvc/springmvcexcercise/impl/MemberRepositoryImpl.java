@@ -5,7 +5,6 @@ import com.springmvc.springmvcexcercise.entities.Member;
 import com.springmvc.springmvcexcercise.entities.MemberShipRole;
 import com.springmvc.springmvcexcercise.entities.SecurityRole;
 import com.springmvc.springmvcexcercise.repositories.MemberRepository;
-import com.springmvc.springmvcexcercise.validation.Validation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -23,7 +22,6 @@ public class MemberRepositoryImpl implements MemberRepository {
 
     private int index;
     private Map<Integer, Member> members;
-    private Validation validate = new Validation();
 
     public MemberRepositoryImpl() {
         members = new HashMap<>();

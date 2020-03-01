@@ -29,7 +29,7 @@ public class Address {
             addition = "B" + postBox;
         }
         return street + " " +
-                number +
+                number + " " +
                 addition + ", " +
                 postalCode + " " +
                 city;

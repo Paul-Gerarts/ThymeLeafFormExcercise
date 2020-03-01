@@ -1,5 +1,6 @@
 package com.springmvc.springmvcexcercise.entities.dtos;
 
+import com.springmvc.springmvcexcercise.validation.Birthday;
 import com.springmvc.springmvcexcercise.validation.PhoneNumber;
 import lombok.*;
 
@@ -30,7 +31,7 @@ public class MemberDto {
     private final String street;
     @NotBlank
     private final String number;
-    @NotBlank
+    @NonNull
     private final String postBox;
     @NotBlank
     private final String postalCode;
@@ -40,6 +41,7 @@ public class MemberDto {
     @PhoneNumber
     private final String phoneNumber;
     @NotBlank
+    @Birthday
     private final String birthday;
     @NotBlank
     private final String role;

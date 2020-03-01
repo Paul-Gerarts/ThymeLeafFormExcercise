@@ -5,11 +5,11 @@ import javax.validation.Payload;
 import java.lang.annotation.*;
 
 @Documented
-@Constraint(validatedBy = PhoneNumberValidator.class)
+@Constraint(validatedBy = BirthdayValidator.class)
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface PhoneNumber {
-    String message() default "The phonenumber must match xxx/xxxxxx, xxxx/xxxxxx, +xxxx/xxxxxx or +xxxxx/xxxxxx";
+public @interface Birthday {
+    String message() default "You can't be born in the future!";
 
     Class<?>[] groups() default {};
 
