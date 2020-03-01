@@ -20,7 +20,6 @@ public class ControllerExceptionAdvice extends ResponseEntityExceptionHandler {
 
         return new ResponseEntity<>(
                 ApiError.builder()
-                        .title(exception.getLastName())
                         .status(exception.getHttpStatus().getReasonPhrase())
                         .code(exception.getHttpStatus().value())
                         .build(),

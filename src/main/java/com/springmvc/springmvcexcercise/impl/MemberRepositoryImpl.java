@@ -21,15 +21,16 @@ import static com.springmvc.springmvcexcercise.entities.KnittingStiches.*;
 @AllArgsConstructor
 public class MemberRepositoryImpl implements MemberRepository {
 
-    private int index = 3;
+    private int index;
     private Map<Integer, Member> members;
     private Validation validate = new Validation();
 
     public MemberRepositoryImpl() {
         members = new HashMap<>();
 
-        members.put(1,
+        members.put(index,
                 Member.builder()
+                        .id(getNextIndex())
                         .userName("admin")
                         .password("admin")
                         .securityRole(SecurityRole.ADMIN)
@@ -52,8 +53,9 @@ public class MemberRepositoryImpl implements MemberRepository {
                         .email(validate.validateEmail("Jef.email@gmail.com"))
                         .build());
 
-        members.put(2,
+        members.put(index,
                 Member.builder()
+                        .id(getNextIndex())
                         .userName("Maria")
                         .password("Stefens")
                         .securityRole(SecurityRole.USER)
@@ -85,14 +87,18 @@ public class MemberRepositoryImpl implements MemberRepository {
     }
 
     @Override
-    public Member getMember(String lastName) {
+    public Member getMember(Integer id) {
         return members.values().stream()
-                .filter(member -> lastName.equals(member.getLastName()))
+                .filter(member -> id.equals(member.getId()))
                 .findFirst()
                 .orElse(null);
     }
 
     public void addMember(Member newMember) {
-        members.put(index++, newMember);
+        members.put(newMember.getId(), newMember);
+    }
+
+    public Integer getNextIndex() {
+        return index++;
     }
 }

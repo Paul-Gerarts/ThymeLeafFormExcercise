@@ -31,6 +31,7 @@ public class MemberService {
     public void addMember(MemberDto dto) {
         memberRepository.addMember(
                 Member.builder()
+                        .id(this.memberRepository.getNextIndex())
                         .userName(dto.getFirstName())
                         .password(dto.getLastName())
                         .securityRole(validate.getRoleByName(dto.getSecurityRole()))

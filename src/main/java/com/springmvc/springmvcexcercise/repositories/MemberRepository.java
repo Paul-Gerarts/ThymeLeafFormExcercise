@@ -10,5 +10,5 @@ public interface MemberRepository {
 
     List<Member> getAllMembers();
 
-    Member getMember(String lastName);
+    Member getMember(Integer id);
 }

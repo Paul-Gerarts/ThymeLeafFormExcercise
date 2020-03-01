@@ -18,6 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Member {
 
+    private final Integer id;
     @NotBlank
     private final String userName;
     @NotBlank

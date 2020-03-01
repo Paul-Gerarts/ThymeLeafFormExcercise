@@ -1,42 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en" th:replace="base:: layout(~{::title}, ~{::section})">
 <head>
-    <meta charset="UTF-8">
     <title>gedetailleerde ledenlijst</title>
 </head>
 <body>
-<h1>Detailed list of members</h1>
-<p class="boldLetter">voornaam: </p>
-<br/>
-<p>[[${member.firstName}]]</p>
-<br/>
-<p class="boldLetter">achternaam: </p>
-<br/>
-<p>[[${member.lastName}]]</p>
-<br/>
-<p class="boldLetter">email: </p>
-<br/>
-<p>[[${member.email}]]</p>
-<br/>
-<p class="boldLetter">adres: </p>
-<br>
-<p>[[${member.address}]] </p>
-<br/>
-<p class="boldLetter">telefoonnummer: </p>
-<br>
-<p>[[${member.phoneNumber}]] </p>
-<br/>
-<p class="boldLetter">geboortedatum: </p>
-<br/>
-<p>[[${member.birthday}]] </p>
-<br/>
-<p class="boldLetter">functie: </p>
-<br/>
-<p>[[${member.role}]] </p>
-<br/>
-<p class="boldLetter">gekende breisteken: </p>
-<br/>
-<p>[[${member.knittingStiches}]] </p>
-<br/>
+<section>
+    <h1>Detailed list of members</h1>
+    <p class="boldLetter">voornaam: </p>
+    <br/>
+    <p>[[${member.firstName}]]</p>
+    <br/>
+    <p class="boldLetter">achternaam: </p>
+    <br/>
+    <p>[[${member.lastName}]]</p>
+    <br/>
+    <p class="boldLetter">email: </p>
+    <br/>
+    <p>[[${member.email}]]</p>
+    <br/>
+    <p class="boldLetter">adres: </p>
+    <br>
+    <p>[[${member.address}]] </p>
+    <br/>
+    <p class="boldLetter">telefoonnummer: </p>
+    <br>
+    <p>[[${member.phoneNumber}]] </p>
+    <br/>
+    <p class="boldLetter">geboortedatum: </p>
+    <br/>
+    <p>[[${member.birthday}]] </p>
+    <br/>
+    <p class="boldLetter">functie: </p>
+    <br/>
+    <p>[[${member.role}]] </p>
+    <br/>
+    <p class="boldLetter">gekende breisteken: </p>
+    <br/>
+    <p>[[${member.knittingStiches}]] </p>
+    <br/>
+</section>
 </body>
 </html>

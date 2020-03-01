@@ -28,12 +28,12 @@ public class MemberServiceImpl implements MemberRepository {
     }
 
     @Override
-    public Member getMember(String lastName){
-        Member member = memberRepository.getMember(lastName);
+    public Member getMember(Integer id) {
+        Member member = memberRepository.getMember(id);
         if (null != member) {
             return member;
         } else {
-            throw new MemberNotFoundException("A member with the last name of '" + lastName + "' has not been found", lastName);
+            throw new MemberNotFoundException("A member with the id of '" + id + "' has not been found", id);
         }
     }
 }
