@@ -75,7 +75,7 @@ public class MemberRepositoryImpl implements MemberRepository {
                         ))
                         .role(MemberShipRole.VICE_PRESIDENT.getName())
                         .phoneNumber("0494/23.20.55")
-                        .email("Marleen_email@telenet.be")
+                        .email("marleen_email@telenet.be")
                         .build());
     }
 

@@ -33,7 +33,7 @@ public class MemberServiceImpl implements MemberRepository {
         if (null != member) {
             return member;
         } else {
-            throw new MemberNotFoundException("A member with the id of '" + id + "' has not been found", id);
+            throw new MemberNotFoundException("A member with the id of '" + id + "' has not been found");
         }
     }
 }

@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 @Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PhoneNumber {
-    String message() default "The phonenumber must match xxx/xxxxxx, xxxx/xxxxxx, +xxxx/xxxxxx or +xxxxx/xxxxxx";
+    String message() default "The phonenumber must match xxx/xx.xx.xx, xxxx/xx.xx.xx, +xxxx/xx.xx.xx or +xxxxx/xx.xx.xx";
 
     Class<?>[] groups() default {};
 

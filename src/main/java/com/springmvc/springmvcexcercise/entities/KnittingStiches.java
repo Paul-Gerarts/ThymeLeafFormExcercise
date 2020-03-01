@@ -12,7 +12,7 @@ public enum KnittingStiches {
     RIB("Rib"),
     SEED("Seed"),
     BEGINNER_LACE("Beginner lace"),
-    CABLE("cable");
+    CABLE("Cable");
 
     private final String name;
 
