@@ -3,6 +3,7 @@ package com.springmvc.springmvcexcercise.entities;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.lang.NonNull;
+import org.springframework.util.StringUtils;
 
 import javax.validation.constraints.NotBlank;
 
@@ -23,10 +24,14 @@ public class Address {
 
     @Override
     public String toString() {
-        return "straat: " + street +
-                ", nummer: " + number +
-                ", postbus: " + postBox +
-                ", postcode: " + postalCode +
-                ", stad: " + city;
+        String addition = "";
+        if (!StringUtils.isEmpty(postBox)) {
+            addition = "B" + postBox;
+        }
+        return street + " " +
+                number +
+                addition + ", " +
+                postalCode + " " +
+                city;
     }
 }

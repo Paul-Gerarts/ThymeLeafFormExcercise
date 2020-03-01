@@ -6,66 +6,99 @@
 <body>
 <section>
     <h1>Lid toevoegen</h1>
-    <form action="#" th:action="@{/admin}" method="post" th:object="${myform}">
-
-        <!--   <div>
-               <label th:for="message">Message: </label>
-               <input type="text" th:field="*{message}" th:errorClass="errorField"/>
-               <span class="errorMessage" th:if="${#fields.hasErrors('message')}" th:errors="*{message}">
-                           Invalid message
-                       </span>
-           </div><hr>-->
-
-        <hr>
-        <div>Voornaam: <input type="text" th:field="*{firstName}" name="firstName"></div>
-        <hr>
-        <div>Achternaam: <input type="text" th:field="*{lastName}" name="lastName"></div>
-        <hr>
-        <div>Email: <input type="text" th:field="*{email}" name="email"></div>
-        <hr>
-        <div>Straat: <input type="text" th:field="*{street}" name="street"></div>
-        <hr>
-        <div>Nummer: <input type="text" th:field="*{number}" name="number"></div>
-        <hr>
-        <div>Postbus: <input type="text" th:field="*{postBox}" name="postBox"></div>
-        <hr>
-        <div>Postcode: <input type="text" th:field="*{postalCode}" name="postalCode"></div>
-        <hr>
-        <div>Stad: <input type="text" th:field="*{city}" name="city"></div>
-        <hr>
-        <div>Telefoonnummer: <input type="text" th:field="*{phoneNumber}" name="phoneNumber"></div>
-        <hr>
-        <div>Geboortedatum: <input type="date" th:field="*{birthday}" name="birthday"></div>
-        <hr>
-        <p>Gekende breisteken</p>
-        <div th:each="choice : ${knittingStiches}">
-            <label th:for="${#ids.next('knittingStiches')}" th:text="${choice}">Radio label</label>
-            <input type="checkbox" th:field="*{knittingStiches}" th:value="${choice}"/>
+    <form action="#" th:action="@{/members/detail/{id}/edit}" method="post" th:object="${myform}">
+        <input type="hidden" th:field="*{id}" name="id">
+        <div class="form-group">
+            <label for="firstName">Voornaam: </label>
+            <input class="form-control" id="firstName" type="text" th:field="*{firstName}" name="firstName">
+            <small class="form-text text-danger" th:if="${#fields.hasErrors('firstName')}"
+                   th:errors="*{firstName}"></small>
         </div>
-        <hr>
-        <p>Machtiging:</p>
-        <div th:each="radio : ${roleList}">
-            <label th:for="${#ids.next('securityRole')}" th:text="${radio}">Radio label</label>
-            <input type="radio" th:field="*{securityRole}" th:value="${radio}"/>
+        <div class="form-group">
+            <label for="lastName">Achternaam: </label>
+            <input class="form-control" id="lastName" type="text" th:field="*{lastName}" name="lastName">
+            <small class="form-text text-danger" th:if="${#fields.hasErrors('lastName')}"
+                   th:errors="*{lastName}"></small>
         </div>
-
-        <hr>
-
-        <!--  <div th:each="size : ${T(be.syntra.java.advanced.springmvc.form.SizeType).values()}">
-              <label th:for="${#ids.next('size')}" th:text="${size}">Radio label</label>
-              <input type="radio" th:field="*{size}" th:value="${size}"/>
-          </div>
-          <hr>
-      -->
-        <p>Ledenrol:</p>
-        <div th:each="choice : ${memberRoleList}">
-            <label th:for="${#ids.next('choices')}" th:text="${choice}">Choice</label>
-            <input type="checkbox" th:field="*{role}" th:value="${choice}"/>
+        <div class="form-group">
+            <label for="email">Email: </label>
+            <input class="form-control" id="email" type="text" th:field="*{email}" name="email">
+            <small class="form-text text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
         </div>
-
-        <br>
-
-        <input type="submit" value="Submit"/>
+        <div class="form-group">
+            <label for="street">Straat: </label>
+            <input class="form-control" id="street" type="text" th:field="*{street}" name="street">
+            <small class="form-text text-danger" th:if="${#fields.hasErrors('street')}" th:errors="*{street}"></small>
+        </div>
+        <div class="form-group">
+            <label for="number">Nummer: </label>
+            <input class="form-control" id="number" type="text" th:field="*{number}" name="number">
+            <small class="form-text text-danger" th:if="${#fields.hasErrors('number')}" th:errors="*{number}"></small>
+        </div>
+        <div class="form-group">
+            <label for="postBox">Postbus: </label>
+            <input class="form-control" id="postBox" type="text" th:field="*{postBox}" name="postBox">
+            <small class="form-text text-danger" th:if="${#fields.hasErrors('postBox')}" th:errors="*{postBox}"></small>
+        </div>
+        <div class="form-group">
+            <label for="postalCode">Postcode: </label>
+            <input class="form-control" id="postalCode" type="text" th:field="*{postalCode}" name="postalCode">
+            <small class="form-text text-danger" th:if="${#fields.hasErrors('postalCode')}"
+                   th:errors="*{postalCode}"></small>
+        </div>
+        <div class="form-group">
+            <label for="city">Stad: </label>
+            <input class="form-control" id="city" type="text" th:field="*{city}" name="city">
+            <small class="form-text text-danger" th:if="${#fields.hasErrors('city')}" th:errors="*{city}"></small>
+        </div>
+        <div class="form-group">
+            <label for="phoneNumber">Telefoonnummer: </label>
+            <input class="form-control" id="phoneNumber" type="text" th:field="*{phoneNumber}" name="phoneNumber">
+            <small class="form-text text-danger" th:if="${#fields.hasErrors('phoneNumber')}"
+                   th:errors="*{phoneNumber}"></small>
+        </div>
+        <div class="form-group">
+            <label for="birthday">Geboortedatum: </label>
+            <input class="form-control" id="birthday" type="date" th:field="*{birthday}" name="birthday">
+            <small class="form-text text-danger" th:if="${#fields.hasErrors('birthday')}"
+                   th:errors="*{birthday}"></small>
+        </div>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4 class="card-title">Gekende breisteken: </h4>
+                <div class="form-check" th:each="choice : ${knittingStiches}">
+                    <input class="form-check-input" type="checkbox" th:field="*{knittingStiches}" th:value="${choice}"/>
+                    <label class="form-check-label" th:for="${#ids.next('knittingStiches')}" th:text="${choice}">Radio
+                        label</label>
+                </div>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('knittingStiches')}"
+                       th:errors="*{knittingStiches}"></small>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4 class="card-title">Machtiging: </h4>
+                <div class="form-check" th:each="radio : ${roleList}">
+                    <input class="form-check-input" type="radio" th:field="*{securityRole}" th:value="${radio}"/>
+                    <label class="form-check-label" th:for="${#ids.next('securityRole')}" th:text="${radio}">Radio
+                        label</label>
+                </div>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('securityRole')}"
+                       th:errors="*{securityRole}"></small>
+            </div>
+        </div>
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4 class="card-title">Ledenrol: </h4>
+                <div class="form-check" th:each="choice : ${memberRoleList}">
+                    <input class="form-check-input" type="checkbox" th:field="*{role}" th:value="${choice}"/>
+                    <label class="form-check-label" th:for="${#ids.next('choices')}" th:text="${choice}">Choice</label>
+                </div>
+                <small class="form-text text-danger" th:if="${#fields.hasErrors('role')}" th:errors="*{role}"></small>
+            </div>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit"/>
+        <a class="btn btn-secondary" th:href="@{/members}">Cancel</a>
     </form>
 </section>
 </body>

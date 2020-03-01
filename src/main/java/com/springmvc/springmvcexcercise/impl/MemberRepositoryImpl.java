@@ -5,7 +5,7 @@ import com.springmvc.springmvcexcercise.entities.Member;
 import com.springmvc.springmvcexcercise.entities.MemberShipRole;
 import com.springmvc.springmvcexcercise.entities.SecurityRole;
 import com.springmvc.springmvcexcercise.repositories.MemberRepository;
-import com.springmvc.springmvcexcercise.services.Validation;
+import com.springmvc.springmvcexcercise.validation.Validation;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -38,8 +38,8 @@ public class MemberRepositoryImpl implements MemberRepository {
                         .lastName("Swennen")
                         .address(Address.builder()
                                 .street("Kanaalstraat")
-                                .number("61B")
-                                .postBox("")
+                                .number("61")
+                                .postBox("3")
                                 .postalCode("3680")
                                 .city("Neeroeteren")
                                 .build())
@@ -49,8 +49,8 @@ public class MemberRepositoryImpl implements MemberRepository {
                                 STOCKINETTE.getName()
                         ))
                         .role(MemberShipRole.PRESIDENT.getName())
-                        .phoneNumber(validate.validatePhoneNumber("089/86.18.70"))
-                        .email(validate.validateEmail("Jef.email@gmail.com"))
+                        .phoneNumber("089/86.18.70")
+                        .email("Jef.email@gmail.com")
                         .build());
 
         members.put(index,
@@ -76,8 +76,8 @@ public class MemberRepositoryImpl implements MemberRepository {
                                 GARTER.getName()
                         ))
                         .role(MemberShipRole.VICE_PRESIDENT.getName())
-                        .phoneNumber(validate.validatePhoneNumber("0494/23.20.55"))
-                        .email(validate.validateEmail("Marleen_email@telenet.be"))
+                        .phoneNumber("0494/23.20.55")
+                        .email("Marleen_email@telenet.be")
                         .build());
     }
 

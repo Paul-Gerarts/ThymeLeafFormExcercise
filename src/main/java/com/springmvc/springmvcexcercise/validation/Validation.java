@@ -1,4 +1,4 @@
-package com.springmvc.springmvcexcercise.services;
+package com.springmvc.springmvcexcercise.validation;
 
 import com.springmvc.springmvcexcercise.entities.SecurityRole;
 import com.springmvc.springmvcexcercise.exceptions.ValidationException;

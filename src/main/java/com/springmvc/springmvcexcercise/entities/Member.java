@@ -1,18 +1,15 @@
 package com.springmvc.springmvcexcercise.entities;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
-import lombok.ToString;
+import com.springmvc.springmvcexcercise.validation.PhoneNumber;
+import lombok.*;
 import org.springframework.lang.NonNull;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Past;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@Data
+@Getter
+@Setter
 @ToString
 @Builder
 @RequiredArgsConstructor
@@ -23,17 +20,19 @@ public class Member {
     private final String userName;
     @NotBlank
     private final String password;
-    @NonNull
+    @Pattern(regexp = "user|admin")
     private final SecurityRole securityRole;
     @NotBlank
     private final String firstName;
     @NotBlank
     private final String lastName;
     @NotBlank
+    @Email
     private final String email;
     @NonNull
     private final Address address;
     @NotBlank
+    @PhoneNumber
     private final String phoneNumber;
     @Past
     private final LocalDate birthday;
